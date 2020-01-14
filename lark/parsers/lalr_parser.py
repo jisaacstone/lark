@@ -96,9 +96,9 @@ class _Parser:
 
         token = Token.new_borrow_pos(END, None, token) if token else Token(END, None, 0, 1, 1)
         while True:
-            _action, arg = get_action(token)
             if state_stack[-1] == end_state:
                 return value_stack[-1]
+            _action, arg = get_action(token)
             if _action is Shift:
                 if arg == end_state:
                     val ,= value_stack
